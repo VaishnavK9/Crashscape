@@ -1,0 +1,30 @@
+feature,mean_abs_shap,label,family,share_pct,direction
+year,0.85298,Year,Reporting context,29.68844,"highest risk at 2017–2018, lowest at 2022–2023"
+road_type,0.50867,Road type,Road,17.70464,raises risk most for Interstate; lowers it most for Local road
+State,0.50144,State,Reporting context,17.45284,"raises risk most for IL, GA, CO; lowers it most for ND, ME, MT"
+month,0.23347,Month,Time,8.12614,"highest risk at 5–7, lowest at 11–12"
+road_feature_count,0.10938,No. of road features,Road,3.80691,"highest risk at 0–1, lowest at 1–2"
+hour,0.09354,Hour of day,Time,3.25575,"highest risk at 17–19, lowest at 7–8"
+Crossing,0.09299,Crossing,Road,3.23661,lowers risk when present (-0.43 log-odds)
+dow,0.07008,Day of week,Time,2.43915,"highest risk at 5–6, lowest at 2–3"
+Pressure(in),0.06093,Air pressure,Weather,2.12072,"highest risk at 30.16–30.7, lowest at 25.01–28.89"
+Traffic_Signal,0.05797,Traffic Signal,Road,2.01752,lowers risk when present (-0.19 log-odds)
+Temperature(F),0.04839,Temperature,Weather,1.68433,"highest risk at 64–70, lowest at -15–35.96"
+weather_bucket,0.03665,Weather condition,Weather,1.27553,"raises risk most for Other, Rain, Thunderstorm; lowers it most for Clear, Snow, Fog"
+Humidity(%),0.03544,Humidity,Weather,1.23353,"highest risk at 73–79, lowest at 93–100"
+Station,0.03484,Station,Road,1.2127,lowers risk when present (-0.69 log-odds)
+Stop,0.02579,Stop,Road,0.89759,lowers risk when present (-0.43 log-odds)
+Junction,0.02376,Junction,Road,0.82699,raises risk when present (+0.11 log-odds)
+Wind_Speed(mph),0.02109,Wind speed,Weather,0.7342,little effect across its range
+is_night,0.01759,Night-time,Time,0.6121,raises risk when present (+0.03 log-odds)
+Amenity,0.01369,Amenity,Road,0.47652,lowers risk when present (-0.62 log-odds)
+Precipitation(in),0.01094,Precipitation,Weather,0.38086,little effect across its range
+Visibility(mi),0.01016,Visibility,Weather,0.3536,"highest risk at 10–30, lowest at 0.1–6"
+precip_missing,0.0067,Precipitation not reported,Weather,0.2332,raises risk when present (+0.01 log-odds)
+Railway,0.00448,Railway,Road,0.1558,raises risk when present (+0.25 log-odds)
+Give_Way,0.00185,Give Way,Road,0.06429,raises risk when present (+0.15 log-odds)
+Traffic_Calming,0.00019,Traffic Calming,Road,0.00662,raises risk when present (+0.17 log-odds)
+No_Exit,0.0001,No Exit,Road,0.00342,raises risk when present (+0.02 log-odds)
+Bump,0.0,Bump,Road,0.0,lowers risk when present (+0.00 log-odds)
+Roundabout,0.0,Roundabout,Road,0.0,lowers risk when present (+nan log-odds)
+is_weekend,0.0,Weekend,Time,0.0,lowers risk when present (+0.00 log-odds)

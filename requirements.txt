@@ -9,9 +9,9 @@ seaborn==0.13.2
 plotly==7.1.0
 kaleido==1.5.0
 folium==0.20.0
-# Modeling
+# Modeling (HistGradientBoosting = LightGBM-style GBDT, no system libomp needed)
 scikit-learn==1.9.1
-lightgbm==4.7.0
+joblib==1.6.0
 shap==0.54.1
 # App & notebooks
 streamlit==1.66.1

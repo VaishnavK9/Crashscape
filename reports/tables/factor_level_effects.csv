@@ -1,0 +1,38 @@
+group,level,n,mean_shap,odds_x
+road_type,Interstate,1216,0.9166,2.5008
+road_type,Highway,1380,-0.1108,0.8952
+road_type,Local road,2404,-0.5192,0.595
+weather_bucket,Clear,2176,-0.0369,0.9638
+weather_bucket,Cloudy,2041,0.0274,1.0278
+weather_bucket,Rain,312,0.0503,1.0516
+weather_bucket,Snow,90,-0.0248,0.9755
+weather_bucket,Fog,142,0.0192,1.0194
+weather_bucket,Thunderstorm,64,0.0397,1.0405
+weather_bucket,Windy,52,0.0212,1.0214
+weather_bucket,Other,123,0.0665,1.0688
+road_feature,Amenity,53,-0.6144,0.541
+road_feature,Crossing,604,-0.3723,0.6892
+road_feature,Junction,373,0.1019,1.1073
+road_feature,Railway,45,0.2447,1.2772
+road_feature,Station,125,-0.6706,0.5114
+road_feature,Stop,145,-0.4173,0.6588
+road_feature,Traffic_Signal,804,-0.1474,0.8629
+day_of_week,Monday,725,-0.0253,0.975
+day_of_week,Tuesday,879,-0.0342,0.9664
+day_of_week,Wednesday,839,-0.0331,0.9674
+day_of_week,Thursday,845,-0.0447,0.9563
+day_of_week,Friday,909,-0.0315,0.9689
+day_of_week,Saturday,439,0.2212,1.2476
+day_of_week,Sunday,364,0.2252,1.2525
+time_of_day,Night (0-5),535,-0.0263,0.9741
+time_of_day,Morning rush (6-9),1218,-0.0798,0.9233
+time_of_day,Midday (10-15),1586,0.0089,1.0089
+time_of_day,Evening rush (16-19),1192,0.0732,1.0759
+time_of_day,Late evening (20-23),469,0.1121,1.1186
+precipitation,None,3266,-0.0043,0.9957
+precipitation,Light (≤0.05 in/hr),189,0.0082,1.0082
+precipitation,Heavy (>0.05 in/hr),131,0.1881,1.207
+temperature,Below 32°F,331,-0.0775,0.9254
+temperature,32–50°F,992,-0.0406,0.9602
+temperature,50–80°F,2834,0.0261,1.0264
+temperature,Above 80°F,843,-0.0081,0.992

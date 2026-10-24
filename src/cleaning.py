@@ -9,7 +9,8 @@ Pipeline (``clean()``):
 4. Group ~145 ``Weather_Condition`` strings into 8 buckets.
 5. Null out physically implausible sensor readings, then impute weather
    numerics with the State × month median (precipitation → 0 + missing flag).
-6. Summarise the boolean road-feature columns.
+6. Summarise the boolean road-feature columns and classify the street as
+   Interstate / Highway / Local road.
 
 Usage::
 
@@ -188,6 +189,28 @@ def add_road_features(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+ROAD_TYPES: list[str] = ["Interstate", "Highway", "Local road"]
+_INTERSTATE_RE = r"(?:^|[\s(])(?:I-\s?\d|Interstate)"
+_HIGHWAY_RE = (r"(?:\bUS-?\s?\d|\bUS Hwy|\bHwy\b|Highway|\bSR-?\s?\d|State Route|^[A-Z]{2}-\d|"
+               r"\bFwy\b|Freeway|\bExpy\b|Expressway|\bPkwy\b|Parkway|\bTpke\b|Turnpike|"
+               r"\bRoute\b|\bRte\b|Beltway|Toll)")
+
+
+def add_road_type(df: pd.DataFrame) -> pd.DataFrame:
+    """Classify ``Street`` as Interstate / Highway / Local road.
+
+    The regexes run once over the unique street names (categories), not per row.
+    """
+    streets = pd.Series(df["Street"].astype("category").cat.categories, dtype="string").str.strip()
+    kind = pd.Series("Local road", index=streets.index, dtype="object")
+    kind = kind.mask(streets.str.contains(_HIGHWAY_RE, regex=True, case=False, na=False), "Highway")
+    kind = kind.mask(streets.str.contains(_INTERSTATE_RE, regex=True, na=False), "Interstate")
+    mapping = dict(zip(df["Street"].astype("category").cat.categories, kind))
+    df["road_type"] = pd.Categorical(
+        df["Street"].map(mapping).astype("object").fillna("Local road"), categories=ROAD_TYPES)
+    return df
+
+
 # --------------------------------------------------------------------------- #
 # Orchestration
 # --------------------------------------------------------------------------- #
@@ -212,7 +235,8 @@ def clean(df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
     df = clean_weather_numerics(df)
     log("weather numerics + imputation")
     df = add_road_features(df)
-    log("road features")
+    df = add_road_type(df)
+    log("road features + road type")
 
     df["high_severity"] = df["Severity"] >= config.HIGH_SEVERITY_THRESHOLD
     for col in ("City", "County", "State", "Street", "Timezone", "Weather_Condition"):
