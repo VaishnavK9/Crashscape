@@ -1,0 +1,42 @@
+# ---- Data (never commit the raw dataset or full parquet files) ----
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+# Small committable sample (< 25MB, verified at each checkpoint)
+!data/processed/accidents_mini.parquet
+
+*.zip
+*.csv.gz
+*.csv
+# ...except small result tables
+!reports/tables/*.csv
+
+# Large map files (heatmaps can exceed size limits)
+reports/maps/*_full.html
+
+# ---- Python ----
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---- Streamlit / tools ----
+.streamlit/secrets.toml
+catboost_info/
+
+# ---- OS / editors ----
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# ---- Secrets ----
+.env
+kaggle.json
