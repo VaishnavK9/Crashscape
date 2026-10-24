@@ -1,0 +1,6 @@
+time_of_day,accidents,avg_severity,high_severity_pct,high_severity_adj_pct
+Night (0-5),774573,2.2179,18.2041,19.9055
+Morning rush (6-9),1933919,2.2012,19.5177,17.9405
+Midday (10-15),2423893,2.2088,19.047,19.3052
+Evening rush (16-19),1885147,2.217,20.3171,20.5254
+Late evening (20-23),710862,2.2366,19.8211,21.3942
