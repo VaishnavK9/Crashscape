@@ -460,8 +460,7 @@ def plot_top_states(t: pd.DataFrame) -> Path:
     """Top-10 states by accident count."""
     fig, ax = plt.subplots(figsize=(9, 4.8))
     _hbar(ax, t["State"].astype(str), t["accidents"])
-    share = t["accidents"].iloc[0] / t.attrs.get("total", t["accidents"].sum()) * 100
-    ax.set_title(f"California alone records {share:.0f}% of all US accidents")
+    ax.set_title(f"California alone records {t['share_pct'].iloc[0]:.0f}% of all US accidents")
     _subtitle(ax, "Top 10 states by accident count, 2016–Mar 2023")
     _source(fig)
     return save(fig, "12_top_states")
@@ -491,11 +490,9 @@ def plot_state_per_capita(t: pd.DataFrame, n: int = 15) -> Path:
 # --------------------------------------------------------------------------- #
 # Runner
 # --------------------------------------------------------------------------- #
-def make_all_figures(tables: dict[str, pd.DataFrame], sample: pd.DataFrame,
-                     total: int) -> list[Path]:
+def make_all_figures(tables: dict[str, pd.DataFrame], sample: pd.DataFrame) -> list[Path]:
     """Draw every chart from the analysis tables (+ a row-level sample for densities)."""
     set_style()
-    tables["top_states"].attrs["total"] = total
     paths = [
         plot_hourly(tables["by_hour_weekpart"]),
         plot_day_of_week(tables["by_day_of_week"]),
@@ -524,7 +521,7 @@ def main() -> None:
     df = load_parquet(config.CLEAN_PARQUET, columns=analysis.ANALYSIS_COLUMNS)
     tables = analysis.run_all(df)
     sample = load_parquet(config.SAMPLE_PARQUET, columns=analysis.ANALYSIS_COLUMNS, verbose=False)
-    for p in make_all_figures(tables, sample, total=len(df)):
+    for p in make_all_figures(tables, sample):
         print("✔", p.relative_to(config.ROOT_DIR))
 
 

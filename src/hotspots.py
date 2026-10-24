@@ -263,7 +263,7 @@ def density_figure(df: pd.DataFrame, cell_deg: float | None = None,
     lat, lng = df["Start_Lat"], df["Start_Lng"]
     span = max(float(lat.max() - lat.min()), float(lng.max() - lng.min()), 0.05)
     if cell_deg is None:
-        cell_deg = float(np.clip(span / 400, 0.002, 0.05))
+        cell_deg = float(np.clip(span / 250, 0.002, 0.08))
     cells = grid_cells(df, cell_deg)
     cells["weight"] = np.sqrt(cells["count"])
     zoom = float(np.clip(np.log2(360 / span) - 0.6, 3, 13))

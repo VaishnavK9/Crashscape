@@ -226,8 +226,10 @@ def severity_distribution(df: pd.DataFrame) -> pd.DataFrame:
 # Geography
 # --------------------------------------------------------------------------- #
 def top_states(df: pd.DataFrame, n: int = 10) -> pd.DataFrame:
-    """Top-``n`` states by accident count."""
-    return _severity_summary(df.groupby("State", observed=True)).nlargest(n, "accidents").reset_index()
+    """Top-``n`` states by accident count, with each state's share of *all* accidents."""
+    t = _severity_summary(df.groupby("State", observed=True)).nlargest(n, "accidents").reset_index()
+    t["share_pct"] = t["accidents"] / len(df) * 100
+    return t
 
 
 def top_cities(df: pd.DataFrame, n: int = 20) -> pd.DataFrame:
