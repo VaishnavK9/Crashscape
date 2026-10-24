@@ -1,0 +1,11 @@
+rank,lat,lng,count,avg_severity,high_severity_pct,city,state,top_street,peak_hour,junction_pct,signal_pct,first_year,last_year,label
+1,34.03622,-118.2745,3106,2.42,40.86,Los Angeles,CA,CA-110 S,14,21.4,3.4,2016,2023,"CA-110 S · Los Angeles, CA"
+2,34.01704,-118.17397,2527,2.437,42.82,Los Angeles,CA,I-5 N,17,17.6,16.0,2016,2023,"I-5 N · Los Angeles, CA"
+3,34.03443,-118.43674,2341,2.47,46.82,Los Angeles,CA,I-405 N,13,9.1,2.2,2016,2023,"I-405 N · Los Angeles, CA"
+4,33.96132,-118.28223,2064,2.302,29.99,Los Angeles,CA,W Manchester Ave,12,6.6,9.4,2016,2023,"W Manchester Ave · Los Angeles, CA"
+5,33.92764,-118.28295,1987,2.474,46.55,Los Angeles,CA,I-105 E,15,22.5,0.3,2016,2023,"I-105 E · Los Angeles, CA"
+6,34.06302,-118.24744,1932,2.039,3.47,Los Angeles,CA,CA-110 N,13,20.9,2.2,2016,2023,"CA-110 N · Los Angeles, CA"
+7,34.05385,-118.2139,1929,2.418,40.49,Los Angeles,CA,Golden State Fwy S,14,6.4,2.3,2016,2023,"Golden State Fwy S · Los Angeles, CA"
+8,34.02667,-118.20511,1675,2.195,18.99,Los Angeles,CA,I-5 S,14,14.8,1.9,2016,2023,"I-5 S · Los Angeles, CA"
+9,34.15276,-118.28448,1492,2.257,25.07,Los Angeles,CA,Golden State Fwy S,17,16.0,0.0,2016,2023,"Golden State Fwy S · Los Angeles, CA"
+10,34.03719,-118.30489,1476,2.375,37.06,Los Angeles,CA,I-10 W,10,10.5,6.4,2016,2023,"I-10 W · Los Angeles, CA"

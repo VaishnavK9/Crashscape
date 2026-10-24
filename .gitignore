@@ -40,3 +40,6 @@ catboost_info/
 # ---- Secrets ----
 .env
 kaggle.json
+
+# ---- Local tool config ----
+.claude/
